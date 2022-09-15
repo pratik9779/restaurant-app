@@ -1,1 +1,92 @@
-<p>dashboard works!</p>
+<nav class="navbar navbar-light bg-primary">
+  <div class="container-fluid">
+    <h2>Restaurant App</h2>
+
+    <div class="d-flex">
+      <button class="btn btn-success" type="button" data-toggle="modal" data-target="#exampleModal">
+        Add Restaurant
+      </button>
+    </div>
+
+  </div>
+</nav>
+
+<div class="p-5 mb-4 bg-light rounded-3">
+  <div class="container-fluid py-5">
+    <h1 class="display-5 fw-bold">Restaurant Records</h1>
+    <p class="col-md-8 fs-4">Save Records here</p>
+    <a href="#" target="_blank" class="btn btn-primary btn-lg">Button</a>
+  </div>
+</div>
+
+<!-- Table -->
+
+<table class="table mt-4">
+  <thead>
+    <tr>
+      <th scope="col">Restaurant ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Address</th>
+      <th scope="col">Services</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+
+  <tbody *ngFor="let rest of restaurants">
+    <tr>
+      <td>{{rest.id}}</td>
+      <td>{{rest.restaurantName}}</td>
+      <td>{{rest.email}}</td>
+      <td>{{rest.mobile}}</td>
+      <td>{{rest.address}}</td>
+      <td>{{rest.services}}</td>
+      <td>
+        <button class="btn btn-info">Edit</button>&nbsp;
+        <button class="btn btn-danger" (click)="deleteRest(rest.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue">
+          <div class="mb-4">
+            <input type="text" formControlName="restaurantName" class="form-control" id="restaurantName"
+              placeholder="Restaurant Name">
+          </div>
+          <div class="mb-4">
+            <input type="email" formControlName="email" class="form-control" id="email" placeholder="Email">
+          </div>
+          <div class="mb-4">
+            <input type="text" formControlName="mobile" class="form-control" id="mobile" placeholder="Mobile">
+          </div>
+          <div class="mb-4">
+            <input type="text" formControlName="address" class="form-control" id="address" placeholder="Address">
+          </div>
+          <div class="mb-4">
+            <input type="text" formControlName="services" class="form-control" id="services" placeholder="Services">
+          </div>
+
+          <button type="submit" class="btn btn-primary" (click)="addRest()">Submit</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

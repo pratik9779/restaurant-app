@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "restaurantName": "skumar wadewale",
+      "email": "pbsawant2000@gmail.com",
+      "mobile": "7219548690",
+      "address": "Salunke Vihar Rd",
+      "services": "tea,coffee",
+      "id": 2
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
